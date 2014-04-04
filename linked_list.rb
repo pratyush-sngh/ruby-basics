@@ -15,7 +15,7 @@ class Singly_linked_list
     end
 
     def add(value)
-      if @head.nil?
+      if @head.nil ?
         @head = Node.new(value)
       else
         current_node = @head
