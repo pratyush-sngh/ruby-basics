@@ -21,7 +21,7 @@ class Avl_tree
             if node.left.nil?
                 node.left= Node.new(value)
                 node.left.top= node
-                return 
+                return node.top
             else
                 iterate(node.left, value)
             end
@@ -29,20 +29,24 @@ class Avl_tree
             if node.right.nil?
                 node.right= Node.new(value)
                 node.right.top = node
-                return 
+                return node.top
             else
                 iterate(node.right, value)
             end
         end
     end
-
+    
+    def balance(node)
+        #
+    end
 
     def add(value)
         if @head.nil?
             puts "first node"
             @head = Node.new(value)
         else
-            node=iterate(@head, value)    
+            node=iterate(@head, value)  
+            balance(node)
         end
     end
 
