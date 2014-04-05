@@ -51,12 +51,13 @@ class Avl_tree
         begin
             if current_node.nil? 
                 print "not found"
-            elsif current_node > value
+            elsif current_node.value > value
                 current node = current_node.left
-            elsif current_node < value
+            elsif current_node.value < value
                 current_node = current_node.right
-            elsif current_node = value
+            elsif current_node.value = value
                 print current_node
+                break
             end
         end while !current_node.nil?
     end            

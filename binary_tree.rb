@@ -10,13 +10,10 @@ class Binary_tree
     attr_accessor :head
 
     def initialize(first_value=nil)
-        puts "yoyoy" 
     end
     
     def iterate(node, value)
         if node.value > value  
-            puts "yo"
-            puts node.left.nil?
             if node.left.nil?
                 node.left= Node.new(value)
                 return 
@@ -36,7 +33,6 @@ class Binary_tree
 
     def add(value)
         if @head.nil?
-            puts "first node"
             @head = Node.new(value)
         else
             node=iterate(@head, value)    
@@ -48,12 +44,13 @@ class Binary_tree
         begin
             if current_node.nil? 
                 print "not found"
-            elsif current_node > value
-                current node = current_node.left
-            elsif current_node < value
+            elsif current_node.value > value
+                current_node = current_node.left
+            elsif current_node.value < value
                 current_node = current_node.right
-            elsif current_node = value
+            elsif current_node.value = value
                 print current_node
+                break
             end
         end while !current_node.nil?
     end            
