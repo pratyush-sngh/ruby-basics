@@ -10,26 +10,36 @@ class Binary_tree
     attr_accessor :head
 
     def initialize(first_value=nil)
-        @head = Node.new(first_value) if first_value
+        puts "yoyoy" 
     end
     
     def iterate(node, value)
-        if node.nil?
-            return node
-        elsif node.value > value
-            iterate(node.left, value)
-        elsif current_node < value
-            iterate(node.right, value)
+        if node.value > value  
+            puts "yo"
+            puts node.left.nil?
+            if node.left.nil?
+                node.left= Node.new(value)
+                return 
+            else
+                iterate(node.left, value)
+            end
+        elsif node.value < value
+            if node.right.nil?
+                node.right= Node.new(value)
+                return 
+            else
+                iterate(node.right, value)
+            end
         end
     end
 
 
     def add(value)
         if @head.nil?
+            puts "first node"
             @head = Node.new(value)
         else
-            node=iterate(@head, value)
-            node = Node.new(value)
+            node=iterate(@head, value)    
         end
     end
 
