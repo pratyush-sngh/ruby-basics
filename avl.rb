@@ -10,18 +10,15 @@ end
 class Avl_tree
     attr_accessor :head
 
-    def initialize(first_value=nil)
-        puts "yoyoy" 
+    def initialize(first_value=nil) 
     end
     
     def iterate(node, value)
         if node.value > value  
-            puts "yo"
-            puts node.left.nil?
             if node.left.nil?
                 node.left= Node.new(value)
                 node.left.top= node
-                return node.top
+                return node.left.top
             else
                 iterate(node.left, value)
             end
@@ -29,7 +26,7 @@ class Avl_tree
             if node.right.nil?
                 node.right= Node.new(value)
                 node.right.top = node
-                return node.top
+                return node.right.top
             else
                 iterate(node.right, value)
             end
@@ -42,11 +39,10 @@ class Avl_tree
 
     def add(value)
         if @head.nil?
-            puts "first node"
             @head = Node.new(value)
         else
             node=iterate(@head, value)  
-            balance(node)
+            #balance(node)
         end
     end
 
